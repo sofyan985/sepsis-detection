@@ -1,0 +1,8 @@
+{
+  "w_xgb": 0.75,
+  "w_rf": 0.25,
+  "w_nn": 0.0,
+  "best_threshold": 0.49999999999999994,
+  "ensemble_auc": 0.9459,
+  "ensemble_pr": 0.7956
+}
