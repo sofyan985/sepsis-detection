@@ -17,56 +17,126 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-* { font-family: 'DM Sans', sans-serif; }
-code, .mono { font-family: 'DM Mono', monospace; }
-
-.stApp { background-color: #f4f1ec; color: #1a1a2e; }
-
-section[data-testid="stSidebar"] {
-    background-color: #ede9e1;
-    border-right: 1px solid #d4cfc6;
+* { 
+    font-family: 'DM Sans', sans-serif; 
+}
+code, .mono { 
+    font-family: 'DM Mono', monospace; 
 }
 
-h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif !important; font-weight: 600; color: #1a1a2e; }
+.stApp { 
+    background-color: #f8f9fc; 
+    color: #1e2937; 
+}
 
+section[data-testid="stSidebar"] {
+    background-color: #f1f3f8;
+    border-right: 1px solid #e2e8f0;
+}
+
+/* === SECTION HEADERS (Vitals, CBC, etc.) === */
+.sidebar-section {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #334155;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 6px;
+}
+
+/* Streamlit Input Labels */
+label[data-testid="stWidgetLabel"] {
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    margin-bottom: 4px !important;
+}
+
+/* Risk Banners */
 .risk-banner {
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 28px 36px;
     text-align: center;
     margin: 0 0 20px 0;
     font-family: 'DM Mono', monospace;
     border-left: 6px solid;
 }
-.risk-high   { background: #fdf0ef; border-color: #c0392b; }
-.risk-medium { background: #fdf6ec; border-color: #d68910; }
-.risk-low    { background: #edfaf1; border-color: #1e8449; }
+.risk-high   { background: #fef2f2; border-color: #e11d48; }
+.risk-medium { background: #fffbeb; border-color: #f59e0b; }
+.risk-low    { background: #ecfdf5; border-color: #10b981; }
 
-.risk-high .risk-pct   { color: #c0392b; }
-.risk-medium .risk-pct { color: #d68910; }
-.risk-low .risk-pct    { color: #1e8449; }
+.risk-high .risk-pct   { color: #e11d48; }
+.risk-medium .risk-pct { color: #f59e0b; }
+.risk-low .risk-pct    { color: #10b981; }
 
-.risk-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7f8c8d; margin-bottom: 4px; }
-.risk-pct   { font-size: 3.8rem; font-weight: 500; line-height: 1; }
-.risk-name  { font-size: 1rem; font-weight: 500; margin-top: 6px; color: #2c3e50; }
+.risk-label { 
+    font-size: 0.78rem; 
+    letter-spacing: 0.12em; 
+    text-transform: uppercase; 
+    color: #64748b; 
+    margin-bottom: 4px; 
+}
+.risk-pct   { font-size: 3.9rem; font-weight: 500; line-height: 1; }
+.risk-name  { font-size: 1.05rem; font-weight: 500; margin-top: 6px; color: #1e2937; }
 
+/* VCards */
 .vcard {
     background: #ffffff;
-    border: 1px solid #ddd9d0;
-    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
     padding: 14px 12px;
     text-align: center;
-    margin-bottom: 6px;
-    transition: box-shadow 0.2s;
+    margin-bottom: 8px;
+    transition: all 0.2s;
 }
-.vcard:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-.vcard.abn   { border-left: 3px solid #c0392b; background: #fdf8f8; }
-.vcard.norm  { border-left: 3px solid #1e8449; }
+.vcard:hover { 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+    transform: translateY(-1px);
+}
+.vcard.abn   { border-left: 3px solid #e11d48; background: #fef2f2; }
+.vcard.norm  { border-left: 3px solid #10b981; }
 
-.vcard-val   { font-family: 'DM Mono', monospace; font-size: 1.35rem; font-weight: 500; color: #1a1a2e; }
-.vcard-val.abn-val { color: #c0392b; }
-.vcard-name  { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #95a5a6; margin-top: 2px; }
-.vcard-unit  { font-size: 0.65rem; color: #bdc3c7; }
+.vcard-val   { 
+    font-family: 'DM Mono', monospace; 
+    font-size: 1.38rem; 
+    font-weight: 500; 
+    color: #1e2937; 
+}
+.vcard-val.abn-val { color: #e11d48; }
+.vcard-name  { font-size: 0.71rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-top: 2px; }
+.vcard-unit  { font-size: 0.68rem; color: #94a3b8; }
 
+/* Buttons */
+.stButton > button {
+    border-radius: 8px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.97rem !important;
+    letter-spacing: 0.02em !important;
+    padding: 12px 20px !important;
+    height: auto !important;
+    min-height: 48px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+}
+
+.stButton > button[kind="primary"] {
+    background-color: #14b8a6 !important;
+    color: white !important;
+}
+.stButton > button[kind="primary"]:hover {
+    background-color: #0f766e !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.35) !important;
+}
+
+.stButton > button[kind="secondary"] {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* === PATIENT HISTORY - Restored to Original Style === */
 .hist-row {
     background: #ffffff;
     border: 1px solid #ddd9d0;
@@ -85,47 +155,25 @@ h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif !important; font-weight: 600
 .tag-l { color: #1e8449; font-weight: 500; }
 
 .section-header {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #95a5a6;
-    margin: 18px 0 10px 0;
-    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin: 22px 0 12px 0;
+    font-weight: 600;
 }
 
 .model-pill {
     background: #ffffff;
-    border: 1px solid #ddd9d0;
-    border-radius: 4px;
-    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px 16px;
     text-align: center;
-    font-family: 'DM Mono', monospace;
 }
-.model-pill-val  { font-size: 1.6rem; font-weight: 500; }
-.model-pill-name { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #95a5a6; margin-top: 2px; }
+.model-pill-val  { font-size: 1.65rem; font-weight: 500; }
+.model-pill-name { font-size: 0.71rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-top: 3px; }
 
-div[data-testid="stMetric"] { background: #fff; border-radius: 4px; border: 1px solid #ddd9d0; padding: 10px; }
-
-.stButton > button {
-    border-radius: 3px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.04em !important;
-}
-
-/* sidebar section labels */
-.sidebar-section {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #95a5a6;
-    font-weight: 500;
-    margin: 14px 0 6px 0;
-    border-bottom: 1px solid #d4cfc6;
-    padding-bottom: 4px;
-}
-
-.stSlider > div > div > div { background: #d4cfc6 !important; }
+.stSlider > div > div > div { background: #cbd5e1 !important; }
 </style>
 """, unsafe_allow_html=True)
 
